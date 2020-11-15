@@ -1,0 +1,16 @@
+<div style="max-width: 50em">
+  <mat-table [dataSource]="pessoas">
+    <ng-container matColumnDef="nome">
+      <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{ row.nome }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="dataNasc">
+      <mat-header-cell *matHeaderCellDef> Data de Nascimento </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        {{ row.dataNasc | date: "dd/MM/yyyy" }}
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="['nome', 'dataNasc']"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: ['nome', 'dataNasc']"></mat-row>
+  </mat-table>
+</div>
